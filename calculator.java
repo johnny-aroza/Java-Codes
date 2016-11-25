@@ -1,11 +1,68 @@
 class Calculator{
+//swap
+	public static void swapAryElement(int[] a, int i,int j) {
 
+    int temp;
+    temp = a[i];
+ 	a[i] = a[j];
+    a[j] = temp;
+   
+}
+
+//is ana word
+	public static boolean isana(String a,String b){
+		int sum1=0,sum2=0;
+		int x,y;
+		
+		a=a.trim();
+		b=b.trim();
+		if (a.length()==b.length()) {
+			for (int i=0;i<a.length();i++ ) {
+				x = (int)a.charAt(i);
+				sum1+=x;
+				y = (int)b.charAt(i);
+				sum2+=y;
+			}
+		}
+		else {
+			return false;
+		}
+		return (sum2==sum1);
+	}
+//check email 
+	public static boolean CheckEmail(String a){
+
+		return (a.matches("([a-z]+[0-9]*)@(.*).com"));
+
+	}
+//reverse a string 
+	public static String strreverse(String a){
+		a=a.trim();
+		 int len= a.length();
+		String res= " "+a.charAt(len-1);
+		for (int i = len-2; i>=0; i--) {
+			res +=a.charAt(i);
+		}
+		return res.trim();
+	} 
+//first word in sentence
+	private static String strfirstWords(String a){
+		a=a.trim();
+		String res = " "+a.charAt(0);
+		for (int i = 1;i<a.length();i++) {
+			if(a.charAt(i)==' '){
+				res=res+a.charAt(i+1);
+			}
+			
+		}
+		return res;
+	}
 //add two numbers
 		public static int add(int num1,int num2){
 			 int sum=num1+num2;
 			 return sum;
 		}
-//add two numbers
+//perfect number numbers
 		public static boolean per(int n){
 			int sum=0;
 			for (int i=1;i<n;i++ ) {
@@ -21,7 +78,7 @@ class Calculator{
 			}
 			 else return false;
 		}
-		//add two numbers
+		//reverse   3 numbers
 		public static int rev3(int num){
 			 int rev=0,temp;
 			while(num!=0){
@@ -617,7 +674,7 @@ class Calculator{
 	}
 
 //natural numbers generation of given size to an array
-	public static int[] naturalsize(int howmany){
+	public static int[] naturalSize(int howmany){
 		int[] a = new int[howmany];
 		for (int i=0; i<a.length; i++) {
 			a[i] = i +1;
@@ -628,7 +685,7 @@ class Calculator{
 	}
 
 //random numbers generation of given size to an array
-	public static int[] ranarray(int howmany){
+	public static int[] randomArray(int howmany){
 		int[] a = new int[howmany];
 		for (int i=0; i<a.length; i++) {
 			a[i] = (int)(Math.random()*1000);
@@ -748,6 +805,24 @@ class Calculator{
 		} 
 		return parray;
 	}
+//================methods for bench mark prgrm
+	
+		
+		public static int[] revNaturalSize(int howmany){
+		int[] a = new int[howmany];
+		for (int i=0; i<a.length; i++) {
+			a[i] = i +1;
+		}
+		reverse(a);
+		return (a);
+		
+	}
+
+	public static void copyArray(int[] a,int[] b){
+		for (int i=0; i<a.length; i++) {
+			a[i] = b[i];}	
+	}
+
 
 
 }
